@@ -32,8 +32,7 @@ public class SkersluSpawneris : MonoBehaviour
         Helperi.Log("Notiek skersla veidošana!");
         SkerslaNumurs++;
 
-        float SkerslaRobeza =(float)((-VidusPlatums / 2) + MaxRobeza);
-
+        float SkerslaRobeza =(-VidusPlatums / 2) + MaxRobeza;
 
         GameObject Skerslis = new GameObject();
         Skerslis.SetActive(false);
@@ -41,19 +40,16 @@ public class SkersluSpawneris : MonoBehaviour
         Skerslis.name = SkerslaNumurs.ToString();
 
         
-
         float ObstacleScaleX = PuseSkersla.transform.localScale.x;
-
 
         Vector3 KreisaPozicija = new Vector3((-ObstacleScaleX/2)-(VidusPlatums/2), SkerslaNumurs * FreeSpace , 0);
         Vector3 LabaPozicija = new Vector3((ObstacleScaleX / 2) + (VidusPlatums / 2), SkerslaNumurs * FreeSpace, 0);
         
 
         //TODO spawnot skerslus pec taa reziima 
-        Instantiate(PuseSkersla,KreisaPozicija,Skerslis.transform.rotation, Skerslis.transform);
-        Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
 
-        Skerslis.transform.position = new Vector3(Helperi.GetRandomFloat(-SkerslaRobeza, SkerslaRobeza), SkerslaNumurs * FreeSpace, 0);
+
+       
 
         //Debug.Log(Skerslis.transform.position);
 
@@ -63,6 +59,10 @@ public class SkersluSpawneris : MonoBehaviour
         {
            
             case Helperi.SkerslaRezims.GoLeftAndRight:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 GoLeftAndRight Skripts = Skerslis.AddComponent<GoLeftAndRight>();
                 Skripts.enabled = false;
                 Skripts.MaxRobeza = SkerslaRobeza;  //Lai daiet da ekrana malaam un talaak nekru
@@ -73,6 +73,10 @@ public class SkersluSpawneris : MonoBehaviour
                 break;
 
             case Helperi.SkerslaRezims.GoLeft:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 GoLeft Skripts1 = Skerslis.AddComponent<GoLeft>();
                 Skripts1.MaxRobeza = SkerslaRobeza; 
                 Skripts1.ObjectNum = SkerslaNumurs;
@@ -80,6 +84,10 @@ public class SkersluSpawneris : MonoBehaviour
                 Skripts1.FreeSpace = FreeSpace;
                 break;
             case Helperi.SkerslaRezims.GoRight:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 GoRight Skripts2 =Skerslis.AddComponent<GoRight>();
                 Skripts2.MaxRobeza = SkerslaRobeza;
                 Skripts2.ObjectNum = SkerslaNumurs;
@@ -87,11 +95,19 @@ public class SkersluSpawneris : MonoBehaviour
                 Skripts2.FreeSpace = FreeSpace;
                 break;
             case Helperi.SkerslaRezims.PunchLeftAndRight:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 PunchLeftAndRight Skripts3 = Skerslis.AddComponent<PunchLeftAndRight>();
                 break;
 
                 //TODO Prieks puncheriem izveidot labaaku sisteemu.
             case Helperi.SkerslaRezims.PunchLeft:
+
+                //Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 PunchLeft Skripts4 = Skerslis.AddComponent<PunchLeft>();
                 Skripts4.MaxRobeza = MaxRobeza+(VidusPlatums/2);
                 Skripts4.ObjectNum = SkerslaNumurs;
@@ -99,6 +115,10 @@ public class SkersluSpawneris : MonoBehaviour
                 Skripts4.FreeSpace = FreeSpace;
                 break;
             case Helperi.SkerslaRezims.PunchRight:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                //Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 PunchRight Skripts5 = Skerslis.AddComponent<PunchRight>();
                 Skripts5.MaxRobeza = MaxRobeza + (VidusPlatums / 2);
                 Skripts5.ObjectNum = SkerslaNumurs;
@@ -106,6 +126,10 @@ public class SkersluSpawneris : MonoBehaviour
                 Skripts5.FreeSpace = FreeSpace;
                 break;
             case Helperi.SkerslaRezims.Random:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 Random Skripts6 = Skerslis.AddComponent<Random>();
                 Skripts6.MaxRobeza = SkerslaRobeza;
                 Skripts6.ObjectNum = SkerslaNumurs;
@@ -113,15 +137,24 @@ public class SkersluSpawneris : MonoBehaviour
                 Skripts6.FreeSpace = FreeSpace;
                 break;
             case Helperi.SkerslaRezims.None:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 None Skripts7 = Skerslis.AddComponent<None>();
                 break;
             default:
+
+                Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+                Instantiate(PuseSkersla, LabaPozicija, Skerslis.transform.rotation, Skerslis.transform);
+
                 Helperi.Log("Nezināms režīms piešķirts šķērslim! Liekam nekādu režīmu.");
                 Skerslis.AddComponent<None>();
                 break;
 
         }
 
+        Skerslis.transform.position = new Vector3(Helperi.GetRandomFloat(-SkerslaRobeza, SkerslaRobeza), SkerslaNumurs * FreeSpace, 0);
         Skerslis.SetActive(true);
     }
 

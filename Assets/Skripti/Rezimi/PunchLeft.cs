@@ -12,6 +12,7 @@ public class PunchLeft : MonoBehaviour
     public float PunchExtra = 15;
     void Start()
     {
+      //
         GameObject.Destroy(transform.GetChild(0).gameObject);
         target = new Vector3(-MaxRobeza, FreeSpace * ObjectNum, 0);
     }

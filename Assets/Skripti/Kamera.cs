@@ -5,6 +5,8 @@ using UnityEngine;
 public class Kamera : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject Speletajs;
+    public Vector3 offset = new Vector3(0, 5, -10);
     Camera cam;
     public float SkerslaMaxRobeza = 0;
     void Start()
@@ -18,9 +20,15 @@ public class Kamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    float oldPos = 0;
+    void LateUpdate()
     {
-        
+        if (oldPos <= Speletajs.transform.position.y)
+        {
+            transform.position = new Vector3(0, Speletajs.transform.position.y, 0) + offset;
+            oldPos = Speletajs.transform.position.y;
+        }
     }
 
 }
