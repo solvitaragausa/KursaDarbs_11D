@@ -13,7 +13,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
   sceneClasses:
     Assets/Limeni/RandomLevel.unity:
     - Class: 1
@@ -546,4 +545,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Limeni/RandomLevel.unity
-  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/4/KursaDarbs_11D.exe
+  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/5/KursaDarbs_11D.exe

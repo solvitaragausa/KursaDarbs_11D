@@ -12,7 +12,7 @@ public class Helperi
     static System.Random a = new System.Random(); //Deklarējam šeit jo funkcijā, ja katru reizi deklarēs, tad tie laiki būs pārāk tuvi un atgriezīs tās pašas vērtības
     static bool Loggeris_Ieslegts = false;
     static StreamWriter sw;
-    static NamedPipeServerStream server = new NamedPipeServerStream("UnityGame", PipeDirection.InOut);
+  //  static NamedPipeServerStream server = new NamedPipeServerStream("UnityGame", PipeDirection.InOut);
     public enum SkerslaRezims
     {
         GoLeftAndRight,
