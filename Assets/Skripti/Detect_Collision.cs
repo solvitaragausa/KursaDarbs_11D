@@ -8,13 +8,12 @@ public class Detect_Collision : MonoBehaviour
 
     void Start()
     {
-        Settings.debug_texts[3] = "Dzīvs";
+        Common_Vertibas.debug_texts[3] = "Dzīvs";
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        Settings.debug_texts[3] = "Miris :/";
-       // transform.parent = null;
-       // Debug.Log("Herp Derp esmu miris");
+        //Spēlētājs saskārārās ar citu objektu
+        Common_Vertibas.debug_texts[3] = "Miris :/";
     }
 }

@@ -2,22 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Random : MonoBehaviour
+public class RandomMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int ObjectNum = 0;
-    public float MaxRobeza = 0;
-    public float speed = 10.0f;
-    public float FreeSpace = 0;
-    public float RandomGajiens = 1.0f;
+    public int ObjectNum;
+    public float MaxRobeza;
+    public float speed;
+    public float RandomGajiens;
     public Vector3 target;
+    float VidPlatums;
 
-    void Start()
-    {
-        target.y = transform.position.y;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         float step = speed * Time.deltaTime;
@@ -34,10 +28,8 @@ public class Random : MonoBehaviour
         float MaxRandKreisi;
         float MaxRandLabi;
 
-        float DistancePaLabi = MaxRobeza - transform.position.x;
-        float DistancePaKreisi = (2*MaxRobeza) - DistancePaLabi;
-         //Debug.Log("DKreisi: " + DistancePaKreisi);
-         //Debug.Log("DLabi: " + DistancePaLabi);
+        float DistancePaLabi = (Common_Vertibas.MaxSkerslaRobeza - (VidPlatums / 2)) - transform.position.x;
+        float DistancePaKreisi = (2*(Common_Vertibas.MaxSkerslaRobeza - (VidPlatums / 2))) - DistancePaLabi;
 
         if (DistancePaKreisi < RandomGajiens) MaxRandKreisi = DistancePaKreisi;
         else MaxRandKreisi = RandomGajiens;
@@ -48,5 +40,14 @@ public class Random : MonoBehaviour
 
         CurrentTarget.x += Helperi.GetRandomFloat(-MaxRandKreisi, MaxRandLabi);
         return CurrentTarget;
+    }
+
+    public void SetVertibas(float VidusPlatums, float Skersla_speed, int SkerslaNumurs, float RandGajiens)
+    {
+        VidPlatums = VidusPlatums;
+        speed = Skersla_speed;
+        ObjectNum = SkerslaNumurs;
+        RandomGajiens = RandGajiens;
+        target = new Vector3(transform.position.x, transform.position.y, 0);
     }
 }

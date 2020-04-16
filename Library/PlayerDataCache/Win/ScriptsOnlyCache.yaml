@@ -21,6 +21,7 @@ ScriptsOnlyBuild:
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -156,7 +157,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 868fc7e2757f591206a8dd0f74beeb5e
+      Hash: d3279440b04ad73d9b65c7e64405ab25
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GoLeft
@@ -276,12 +277,6 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: f8409ac4498a224027e68bd56f480f48
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Random
-  - hash:
-      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -300,7 +295,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: a5f2b81c3180dbe8522fca50a9c96aaf
+      Hash: 243a9cb6d49d415b8c2f0849bf16bb9f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Kamera
@@ -330,7 +325,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: 0b0cf40dfd6c381810eb04f35e31f3cb
+      Hash: a05cd29c687caf265ed5648ba688537d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GoLeftAndRight
@@ -402,7 +397,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 69693877548b0e497d926d712d14d8c7
+      Hash: b37b1b3e616040db2346721a52fd6881
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkersluSpawneris
@@ -438,7 +433,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 6cbebbe130fb5331526efec110df6445
+      Hash: 2cf20ca79bef251b27ba6ea933bc4836
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Game_Logic
@@ -456,7 +451,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 868fc7e2757f591206a8dd0f74beeb5e
+      Hash: d3279440b04ad73d9b65c7e64405ab25
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GoRight
@@ -480,7 +475,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 5ca7609af88770e864a8b1c200cad199
+      Hash: 0277b2c391df8fd8e6b48d3c5a8b7ed2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PunchRight
@@ -492,7 +487,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 7c6ab1b22d865d87edb91e11b822e500
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: None
@@ -594,7 +589,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 5ca7609af88770e864a8b1c200cad199
+      Hash: 0277b2c391df8fd8e6b48d3c5a8b7ed2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PunchLeft
@@ -607,4 +602,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Limeni/RandomLevel.unity
-  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/7/KursaDarbs_11D.exe
+  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/8/KursaDarbs_11D.exe

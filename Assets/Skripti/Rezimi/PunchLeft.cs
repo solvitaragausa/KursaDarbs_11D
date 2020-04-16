@@ -5,21 +5,13 @@ using UnityEngine;
 public class PunchLeft : MonoBehaviour
 {
     public int ObjectNum = 0;
-    public float MaxRobeza = 0.0f;
-    public float speed = 10.0f;
+    public float speed;
     public Vector3 target;
-    public float FreeSpace;
-    public float PunchExtra = 15;
-    void Start()
-    {
-      
-       // GameObject.Destroy(transform.GetChild(0).gameObject);
-        target = new Vector3(-MaxRobeza, transform.position.y, 0);
-    }
-
+    public float PunchExtra;
+    public float VidPlatums;
 
     //Ātrs sitiens pa kreisi un tad lēnam atpakaļ
-    bool a = false;
+    bool a = true;
     float step;
     void Update()
     {
@@ -31,10 +23,22 @@ public class PunchLeft : MonoBehaviour
             step = speed * Time.deltaTime; 
         }
         transform.position = Vector3.MoveTowards(transform.position, target, step);
+
         if (Vector3.Distance(transform.position, target) < 0.001f)
         {
-            target.x = -target.x;
-            a = !a;
+            if (!a) target.x = Common_Vertibas.MaxSkerslaRobeza - (VidPlatums / 2);
+            else target.x = -(Common_Vertibas.MaxSkerslaRobeza + (VidPlatums / 2));
+
+                a = !a;
         }
+    }
+
+    public void SetVertibas(float VidusPlatums, float Skersla_speed, int SkerslaNumurs, float ExtraPunchForce)
+    {
+        VidPlatums = VidusPlatums;
+        speed = Skersla_speed;
+        ObjectNum = SkerslaNumurs;
+        PunchExtra = ExtraPunchForce;
+        target = new Vector3(Common_Vertibas.MaxSkerslaRobeza - (VidPlatums / 2), transform.position.y, 0);
     }
 }

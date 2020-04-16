@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class GoLeft : MonoBehaviour
 {
-    public int ObjectNum = 0;
-    public float MaxRobeza = 0.0f;
-    public float speed = 10.0f;
+    public int ObjectNum;
+    public float speed;
+    public float VidPlatums;
     public Vector3 target;
-    public float FreeSpace;
-
-    void Start()
-    {
-        //FreeSpace * ObjectNum
-        target = new Vector3(-MaxRobeza, transform.position.y, 0);
-    }
 
 
-    // Update is called once per frame
+
     void Update()
     {
         float step = speed * Time.deltaTime;
@@ -28,5 +21,13 @@ public class GoLeft : MonoBehaviour
             transform.position = target;
             target.x = -target.x;
         }
+    }
+
+    public void SetVertibas(float VidusPlatums, float Skersla_speed, int SkerslaNumurs)
+    {
+        VidPlatums = VidusPlatums;
+        speed = Skersla_speed;
+        ObjectNum = SkerslaNumurs;
+        target = new Vector3(-(Common_Vertibas.MaxSkerslaRobeza + (VidPlatums / 2)), transform.position.y, 0);
     }
 }

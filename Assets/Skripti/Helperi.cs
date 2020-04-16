@@ -10,9 +10,7 @@ using UnityEngine;
 public class Helperi
 {
     static System.Random a = new System.Random(); //Deklarējam šeit jo funkcijā, ja katru reizi deklarēs, tad tie laiki būs pārāk tuvi un atgriezīs tās pašas vērtības
-    static bool Loggeris_Ieslegts = false;
     static StreamWriter sw;
-  //  static NamedPipeServerStream server = new NamedPipeServerStream("UnityGame", PipeDirection.InOut);
     public enum SkerslaRezims
     {
         GoLeftAndRight,
@@ -58,33 +56,8 @@ public class Helperi
     public static void Log (string msg)
     {
         Debug.Log("Temp Log Here: " + msg);
-        //Thread SendMsg = new Thread(() => Send(msg)) { IsBackground = true };
-        //SendMsg.Start();
-
     }
 
-    /*
-     *  //TODO Izmantot tcp
-    private static void Send(string msg)
-    {
-        
-        if (!Loggeris_Ieslegts)
-        {
-            server.WaitForConnection();
-            Loggeris_Ieslegts = true;
-        }
-        try
-        {
-            byte[] buffer = Encoding.UTF8.GetBytes(msg);
-            server.Write(buffer, 0, buffer.Length);
-        }
-        catch
-        {
-            //Loggeris_Ieslegts = false;
-            Send(msg);
-        }
 
-    }
-    */
 
 }

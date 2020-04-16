@@ -4,34 +4,31 @@ using UnityEngine;
 
 public class GoLeftAndRight : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int ObjectNum = 0;
-    public float MaxRobeza = 0;
-    public float speed = 10.0f;
-    public float FreeSpace = 0;
+    public int ObjectNum;
+    public float VidPlatums;
+    public float speed;
     public Vector3 target;
 
-    void Start()
-    {
-        
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(transform.position,target) <0.001f)
+        if (Vector3.Distance(transform.position, target) < 0.001f)
         {
             target.x = -target.x;
-        }    
+        }
     }
 
-
-    void OnEnable()
+    public void SetVertibas(float VidusPlatums, float Skersla_speed, int SkerslaNumurs)
     {
-        target = new Vector3(MaxRobeza, transform.position.y, 0);
-        this.enabled = true;
+        VidPlatums = VidusPlatums;
+        speed = Skersla_speed;
+        ObjectNum = SkerslaNumurs;
+
+        if (Helperi.GetRandomBool()) target = new Vector3(Common_Vertibas.MaxSkerslaRobeza - (VidPlatums / 2), transform.position.y, 0); 
+        else target = new Vector3(-(Common_Vertibas.MaxSkerslaRobeza - (VidPlatums / 2)), transform.position.y, 0);
+
     }
+
 }

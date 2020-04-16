@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class None : MonoBehaviour
 {
+
+    public int ObjectNum;
+    public float VidPlatums;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,11 @@ public class None : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetVertibas(float VidusPlatums, int SkerslaNumurs)
+    {
+        VidPlatums = VidusPlatums;
+        ObjectNum = SkerslaNumurs;
     }
 }

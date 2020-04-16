@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Skripti\Common_Vertibas.cs" />
     <Compile Include="Assets\Skripti\debug_text.cs" />
     <Compile Include="Assets\Skripti\Detect_Collision.cs" />
     <Compile Include="Assets\Skripti\Game_Logic.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets\Skripti\Rezimi\PunchLeftAndRight.cs" />
     <Compile Include="Assets\Skripti\Rezimi\PunchRight.cs" />
     <Compile Include="Assets\Skripti\Rezimi\Random.cs" />
-    <Compile Include="Assets\Skripti\Settings.cs" />
     <Compile Include="Assets\Skripti\SkersluSpawneris.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
