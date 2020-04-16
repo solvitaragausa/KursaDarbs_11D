@@ -21,10 +21,16 @@ public class Helperi
         PunchLeftAndRight,
         PunchLeft,
         PunchRight,
-        Random,
+        RandomMovement,
+        Empty,
         None
     }
-
+    public enum SkersluVeids
+    {
+        Abi,
+        Kreisais,
+        Labais
+    }
     //TODO Pielietot loggerī
     public enum Tag
     {
@@ -33,6 +39,7 @@ public class Helperi
         Info,
         Debug
     }
+
     //-2.3 līdz 2.3
     public static float GetRandomFloat(float Min, float Max)
     {

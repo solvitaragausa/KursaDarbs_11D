@@ -76,7 +76,6 @@
     <Compile Include="Assets\Skripti\Rezimi\Random.cs" />
     <Compile Include="Assets\Skripti\Settings.cs" />
     <Compile Include="Assets\Skripti\SkersluSpawneris.cs" />
-    <Compile Include="Assets\Skripti\Spele.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Intars/Projekti/KursaDarbs_11D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

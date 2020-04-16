@@ -4,7 +4,6 @@ ScriptsOnlyBuild:
     - Kamera
     - Kontrole
     - SkersluSpawneris
-    - Spele
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -13,6 +12,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
   sceneClasses:
     Assets/Limeni/RandomLevel.unity:
     - Class: 1
@@ -40,8 +40,6 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10164}
-    - Class: 114
       Script: {instanceID: 10294}
     - Class: 114
       Script: {instanceID: 10730}
@@ -50,6 +48,10 @@ ScriptsOnlyBuild:
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -208,12 +210,6 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: f81c3007ae4bb526225e1aee75154809
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Spele
-  - hash:
-      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -328,7 +324,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 7f09a9492ab4d31626ed06606dd0c5f2
+      Hash: e4b9aa8687152792350b1ef885e0dd41
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Kontrole
@@ -545,4 +541,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Limeni/RandomLevel.unity
-  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/5/KursaDarbs_11D.exe
+  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/6/KursaDarbs_11D.exe

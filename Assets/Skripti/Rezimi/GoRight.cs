@@ -22,5 +22,11 @@ public class GoRight : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
+        if (Vector3.Distance(transform.position, target) < 0.001f)
+        {
+            target.x = -target.x;
+            transform.position = target;
+            target.x = -target.x;
+        }
     }
 }

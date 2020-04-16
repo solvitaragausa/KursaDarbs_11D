@@ -5,6 +5,7 @@ using UnityEngine;
 public class Kontrole : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject ClickEfekts;
     public int ObjectNum = 0;
     public float MaxRobeza = 0;
     public float speed = 10.0f;
@@ -18,9 +19,13 @@ public class Kontrole : MonoBehaviour
         //  transform.position = Vector3.MoveTowards(transform.position, target, step);
         
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0)) //Kreisais klikšķis 
         {
+
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            ClickEfekts.transform.position = target;
+            
+            ClickEfekts.GetComponent<ParticleSystem>().Play();
             //target.z = 0;
 
             Vector2 direction = (target - (Vector2)transform.position).normalized;
@@ -31,10 +36,10 @@ public class Kontrole : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target, step);
 
 
-       // if (Vector3.Distance(transform.position, target) < 0.001f)
-       // {
-      //      target.x = -target.x;
-       // }
+       if (Vector3.Distance(transform.position, target) < 0.5f)
+        {
+            ClickEfekts.GetComponent<ParticleSystem>().Stop();
+        }
         /*
         Vector2 direction = (worldPos - (Vector2)transform.position).normalized;
         transform.up = direction;
