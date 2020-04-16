@@ -1,18 +1,33 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Detect_Collision
+    - Game_Logic
     - Kamera
-    - Kontrole
     - SkersluSpawneris
+    - debug_text
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
     - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TMP_SubMeshUI
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
   sceneClasses:
     Assets/Limeni/RandomLevel.unity:
     - Class: 1
@@ -33,19 +48,53 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10294}
+      Script: {instanceID: 9692}
     - Class: 114
-      Script: {instanceID: 10730}
+      Script: {instanceID: 9898}
     - Class: 114
-      Script: {instanceID: 10856}
+      Script: {instanceID: 10122}
+    - Class: 114
+      Script: {instanceID: 10300}
+    - Class: 114
+      Script: {instanceID: 10314}
+    - Class: 114
+      Script: {instanceID: 10322}
+    - Class: 114
+      Script: {instanceID: 10876}
+    - Class: 114
+      Script: {instanceID: 10898}
+    - Class: 114
+      Script: {instanceID: 10912}
+    - Class: 114
+      Script: {instanceID: 11086}
+    - Class: 114
+      Script: {instanceID: 11150}
+    - Class: 114
+      Script: {instanceID: 11320}
+    - Class: 114
+      Script: {instanceID: 11470}
+    - Class: 114
+      Script: {instanceID: 11526}
+    - Class: 114
+      Script: {instanceID: 13110}
+    - Class: 114
+      Script: {instanceID: 13830}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -56,6 +105,12 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -324,12 +379,6 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: e4b9aa8687152792350b1ef885e0dd41
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Kontrole
-  - hash:
-      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -348,7 +397,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 3ec11cb7c4be2c1ca0746a9ad2941615
+      Hash: 69693877548b0e497d926d712d14d8c7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SkersluSpawneris
@@ -474,6 +523,12 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
+      Hash: eb8e720ee3a9ef882fa914f5fc8b3929
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Detect_Collision
+  - hash:
+      serializedVersion: 2
       Hash: a63fc1a3b035e5a0b5839cd7f7b3086e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -538,7 +593,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 028d778c3386c02dc86ee9a36818358f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Game_Logic
+  - hash:
+      serializedVersion: 2
+      Hash: eaf530b9652532fe87afe4c805f83b26
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: debug_text
   platform: 5
   scenePathNames:
   - Assets/Limeni/RandomLevel.unity
-  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/6/KursaDarbs_11D.exe
+  playerPath: D:/Intars/Projekti/KursaDarbs_11D/Builds/7/KursaDarbs_11D.exe

@@ -13,7 +13,7 @@ public class GoRight : MonoBehaviour
     void Start()
     {
 
-        target = new Vector3(MaxRobeza, FreeSpace * ObjectNum, 0);
+        target = new Vector3(MaxRobeza, transform.position.y, 0);
     }
 
 

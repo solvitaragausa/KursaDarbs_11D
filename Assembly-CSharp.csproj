@@ -63,9 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Skripti\debug_text.cs" />
+    <Compile Include="Assets\Skripti\Detect_Collision.cs" />
+    <Compile Include="Assets\Skripti\Game_Logic.cs" />
     <Compile Include="Assets\Skripti\Helperi.cs" />
     <Compile Include="Assets\Skripti\Kamera.cs" />
-    <Compile Include="Assets\Skripti\Kontrole.cs" />
     <Compile Include="Assets\Skripti\Rezimi\GoLeft.cs" />
     <Compile Include="Assets\Skripti\Rezimi\GoLeftAndRight.cs" />
     <Compile Include="Assets\Skripti\Rezimi\GoRight.cs" />
@@ -76,6 +78,24 @@
     <Compile Include="Assets\Skripti\Rezimi\Random.cs" />
     <Compile Include="Assets\Skripti\Settings.cs" />
     <Compile Include="Assets\Skripti\SkersluSpawneris.cs" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Intars/Projekti/KursaDarbs_11D/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

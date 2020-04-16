@@ -14,7 +14,7 @@ public class Random : MonoBehaviour
 
     void Start()
     {
-        target.y = FreeSpace * ObjectNum;
+        target.y = transform.position.y;
     }
 
     // Update is called once per frame

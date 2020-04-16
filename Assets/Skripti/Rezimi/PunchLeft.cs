@@ -14,7 +14,7 @@ public class PunchLeft : MonoBehaviour
     {
       
        // GameObject.Destroy(transform.GetChild(0).gameObject);
-        target = new Vector3(-MaxRobeza, FreeSpace * ObjectNum, 0);
+        target = new Vector3(-MaxRobeza, transform.position.y, 0);
     }
 
 

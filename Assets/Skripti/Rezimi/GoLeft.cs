@@ -12,8 +12,8 @@ public class GoLeft : MonoBehaviour
 
     void Start()
     {
-
-        target = new Vector3(-MaxRobeza, FreeSpace * ObjectNum, 0);
+        //FreeSpace * ObjectNum
+        target = new Vector3(-MaxRobeza, transform.position.y, 0);
     }
 
 

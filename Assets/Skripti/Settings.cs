@@ -6,4 +6,5 @@ public static class Settings
 {
     public static int ObjektiPirms = 10;
     public static int ObjektiPec = 20;
+    public static bool debug = true;
 }

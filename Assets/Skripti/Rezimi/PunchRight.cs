@@ -13,7 +13,7 @@ public class PunchRight : MonoBehaviour
     void Start()
     {
         //GameObject.Destroy(transform.GetChild(1).gameObject);
-        target = new Vector3(MaxRobeza, FreeSpace * ObjectNum, 0);
+        target = new Vector3(MaxRobeza, transform.position.y, 0);
     }
 
 

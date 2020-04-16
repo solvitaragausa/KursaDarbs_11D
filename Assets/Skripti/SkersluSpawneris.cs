@@ -7,12 +7,14 @@ public class SkersluSpawneris : MonoBehaviour
 
     public GameObject PuseSkersla;
     public Transform VisiSkersli;
+    public Game_Logic Kontr;
     public int SkerslaNumurs = 0;
     public int FreeSpace = 1;
     public float MaxRobeza = 0;
     
     void Start()
     {
+        Kontr.FreeSpace = FreeSpace;
         //temp 
         for(int i = 0; i<9;++i)
         IzveidotSkersli(4, (Helperi.SkerslaRezims) i,5);
@@ -42,8 +44,8 @@ public class SkersluSpawneris : MonoBehaviour
         
         float ObstacleScaleX = PuseSkersla.transform.localScale.x;
 
-        Vector3 KreisaPozicija = new Vector3((-ObstacleScaleX/2)-(VidusPlatums/2), SkerslaNumurs * FreeSpace , 0);
-        Vector3 LabaPozicija = new Vector3((ObstacleScaleX / 2) + (VidusPlatums / 2), SkerslaNumurs * FreeSpace, 0);
+        Vector3 KreisaPozicija = new Vector3((-ObstacleScaleX/2)-(VidusPlatums/2), 0 , 0);
+        Vector3 LabaPozicija = new Vector3((ObstacleScaleX / 2) + (VidusPlatums / 2), 0, 0);
         Vector3[] pozicijas = { KreisaPozicija, LabaPozicija };
         
 
@@ -103,7 +105,6 @@ public class SkersluSpawneris : MonoBehaviour
 
                 //Instantiate(PuseSkersla, KreisaPozicija, Skerslis.transform.rotation, Skerslis.transform);
                 SpawnotSkersli(Helperi.SkersluVeids.Labais, Skerslis, pozicijas);
-                Helperi.Log("derp");
                 PunchLeft Skripts4 = Skerslis.AddComponent<PunchLeft>();
                 Skripts4.MaxRobeza = MaxRobeza+(VidusPlatums/2);
                 Skripts4.ObjectNum = SkerslaNumurs;
@@ -160,7 +161,6 @@ public class SkersluSpawneris : MonoBehaviour
         else if (veids == Helperi.SkersluVeids.Labais)
         {
             Instantiate(PuseSkersla, pozicija[1], Skerslis.transform.rotation, Skerslis.transform);
-            Helperi.Log("derp2");
         }
         else //abi
         {
