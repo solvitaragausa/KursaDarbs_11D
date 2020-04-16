@@ -15,7 +15,6 @@ public class Game_Logic : MonoBehaviour
     public int MaxPunkti = 0;
     int Punkti = 0;
     Vector3 target;
-    public debug_text debug;
 
     // Update is called once per frame
 
@@ -52,8 +51,8 @@ public class Game_Logic : MonoBehaviour
         if (Punkti > MaxPunkti) MaxPunkti = Punkti;
         Punkti_text.text = "Punkti: " + MaxPunkti;
 
-        debug.texts[1] = "Laiks: " + (Laiks % 60).ToString("f1");
-        debug.texts[2] = "Punkti Minūtē: " + (MaxPunkti/(Laiks % 60)).ToString("f2");
+        Settings.debug_texts[1] = "Laiks: " + Laiks.ToString("f1");
+        Settings.debug_texts[2] = "Punkti Minūtē: " + (MaxPunkti/Laiks*60).ToString("f2");
 
         if (Vector3.Distance(transform.position, target) < 0.5f)
         {

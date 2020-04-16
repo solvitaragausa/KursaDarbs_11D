@@ -5,12 +5,13 @@ using System;
 
 public class debug_text : MonoBehaviour
 {
-    public string[] texts = new string[50];
+    
     public TMPro.TMP_Text debug;
     // Start is called before the first frame update
     void Start()
     {
-        texts[0] = "debug true" + Environment.NewLine;
+        
+        Settings.debug_texts[0] = "debug true" + Environment.NewLine;
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class debug_text : MonoBehaviour
         debug.text = "";
         if (Settings.debug)
         {
-            foreach(string s in texts)
+            foreach(string s in Settings.debug_texts)
             {
                 if (s != null)
                 {
