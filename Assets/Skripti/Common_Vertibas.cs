@@ -9,6 +9,7 @@ public static class Common_Vertibas
 
     public static float MaxSkerslaRobeza = 5; //Drošības pēc
     public static int FreeSpace = 6; //Default
-    public static bool debug = true;
+    public static bool debug = false;
+    public static bool AtlautsSpelet = true;
     public static string[] debug_texts = new string[50];
 }

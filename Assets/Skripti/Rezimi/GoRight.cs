@@ -10,16 +10,25 @@ public class GoRight : MonoBehaviour
     public Vector3 target;
 
 
-
+    void Start()
+    {
+        //Pievieojam vizuālo identifikatoru
+        Material sitiens = Resources.Load("Materials/GoRight", typeof(Material)) as Material;
+        transform.GetChild(1).gameObject.GetComponent<MeshRenderer>().material = sitiens;
+        transform.GetChild(1).rotation = Quaternion.Euler(0, 180, 0);
+    }
     void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(transform.position, target) < 0.001f)
+        if (Common_Vertibas.AtlautsSpelet)
         {
-            target.x = -target.x;
-            transform.position = target;
-            target.x = -target.x;
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
+            if (Vector3.Distance(transform.position, target) < 0.001f)
+            {
+                target.x = -target.x;
+                transform.position = target;
+                target.x = -target.x;
+            }
         }
     }
 

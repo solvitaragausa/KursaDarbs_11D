@@ -8,6 +8,7 @@ public class Detect_Collision : MonoBehaviour
 
     void Start()
     {
+        Common_Vertibas.debug_texts[4] = "";
         Common_Vertibas.debug_texts[3] = "Dzīvs";
     }
 
@@ -15,5 +16,7 @@ public class Detect_Collision : MonoBehaviour
     {
         //Spēlētājs saskārārās ar citu objektu
         Common_Vertibas.debug_texts[3] = "Miris :/";
+        Common_Vertibas.debug_texts[4] = "Miedziet R lai mēģinātu vēlreiz (tas pagaidām)";
+        Common_Vertibas.AtlautsSpelet = false;
     }
 }

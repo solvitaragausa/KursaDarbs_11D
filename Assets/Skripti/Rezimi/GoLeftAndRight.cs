@@ -12,11 +12,14 @@ public class GoLeftAndRight : MonoBehaviour
 
     void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(transform.position, target) < 0.001f)
+        if (Common_Vertibas.AtlautsSpelet)
         {
-            target.x = -target.x;
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
+            if (Vector3.Distance(transform.position, target) < 0.001f)
+            {
+                target.x = -target.x;
+            }
         }
     }
 

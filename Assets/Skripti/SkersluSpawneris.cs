@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SkersluSpawneris : MonoBehaviour
 {
-
     public GameObject PuseSkersla;
     public Transform VisiSkersli;
     int SkerslaNumurs = 0;
@@ -45,7 +44,7 @@ public class SkersluSpawneris : MonoBehaviour
         float ObstacleScaleX = PuseSkersla.transform.localScale.x;
 
         Vector3 KreisaPozicija = new Vector3((-ObstacleScaleX/2)-(VidusPlatums/2), 0, 0);
-        Vector3 LabaPozicija = new Vector3((ObstacleScaleX / 2) + (VidusPlatums / 2),0 , 0);
+        Vector3 LabaPozicija = new Vector3((ObstacleScaleX / 2) + (VidusPlatums / 2),0 ,0);
         Skerslis.transform.position = new Vector3(Helperi.GetRandomFloat(-SkerslaRobeza, SkerslaRobeza), SkerslaNumurs * FreeSpace, 0);
         Vector3[] pozicijas = { KreisaPozicija, LabaPozicija };
 
@@ -87,7 +86,7 @@ public class SkersluSpawneris : MonoBehaviour
             case Helperi.SkerslaRezims.RandomMovement:
                 SpawnotSkersli(Helperi.SkersluVeids.Abi, Skerslis, pozicijas);
                 RandomMovement Skripts6 = Skerslis.AddComponent<RandomMovement>();
-                Skripts6.SetVertibas(VidusPlatums, speed, SkerslaNumurs,RandomGajiens);
+                Skripts6.SetVertibas(VidusPlatums, speed/1.5f, SkerslaNumurs,RandomGajiens);
                 break;
             case Helperi.SkerslaRezims.Empty:
                 // Šķēršļa nav 

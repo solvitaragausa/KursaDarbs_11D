@@ -9,17 +9,25 @@ public class GoLeft : MonoBehaviour
     public float VidPlatums;
     public Vector3 target;
 
-
+    void Start()
+    {
+        //Pievieojam vizuālo identifikatoru
+        Material sitiens = Resources.Load("Materials/GoLeft", typeof(Material)) as Material;
+        transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = sitiens;
+    }
 
     void Update()
     {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(transform.position, target) < 0.001f)
-        {
-            target.x = -target.x;
-            transform.position = target;
-            target.x = -target.x;
+        if(Common_Vertibas.AtlautsSpelet)
+        { 
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
+            if (Vector3.Distance(transform.position, target) < 0.001f)
+            {
+                target.x = -target.x;
+                transform.position = target;
+                target.x = -target.x;
+            }
         }
     }
 
