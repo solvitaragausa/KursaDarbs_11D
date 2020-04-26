@@ -5,7 +5,7 @@ using System.IO;
 using System.IO.Pipes;
 using System.Text;
 using UnityEngine;
-
+using System;
 
 public class Helperi
 {
@@ -56,6 +56,14 @@ public class Helperi
     public static void Log (string msg)
     {
         Debug.Log("Temp Log Here: " + msg);
+    }
+
+    public static void CreateNewThread(Action Function)
+    {
+        //  Function.Invoke();
+        ThreadStart start = () => Function();
+        Thread t = new Thread(start);
+        t.Start();
     }
 
 
