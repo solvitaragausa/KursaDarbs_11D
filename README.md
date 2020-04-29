@@ -1,10 +1,10 @@
 # KursaDarbs_11D
 
 TODO
-- Rekordu saglabāšana, nosūtīšana serverim
+- ~~Spēles datu nosūtīšana serverim~~
 - Sākuma ekrāns (Citu spēlētāju rekordu redzēšana)
-- Tcp Serveris (priekš visu rekordu saglabāšanas)
-- Labāks vizuālais noformējums
-- Šķēršļu pilnveidošana
-- Log fails
+- ~~Tcp Serveris (priekš spēlētāju datu saglabāšanas)~~
+- Labāks vizuālais noformējums 
+- Šķēršļu pilnveidošana 
+- Log fails 
 - Citas lietas, par ko es aizmirsu.
