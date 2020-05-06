@@ -7,3 +7,12 @@ C:\Users\intar\source\repos\Speles_serveris\Speles_serveris\obj\Debug\Speles_ser
 C:\Users\intar\source\repos\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.csproj.GenerateResource.cache
 C:\Users\intar\source\repos\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.exe
 C:\Users\intar\source\repos\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.pdb
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\bin\Debug\Speles_serveris.exe.config
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\bin\Debug\Speles_serveris.exe
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\bin\Debug\Speles_serveris.pdb
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.csprojAssemblyReference.cache
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.Form1.resources
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.Properties.Resources.resources
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.csproj.GenerateResource.cache
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.exe
+C:\Users\intar\OneDrive\Dators\KursaDarbs_11D\Speles_serveris\Speles_serveris\obj\Debug\Speles_serveris.pdb

@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Net.Sockets;
-using UnityEngine;
 
 public static class Common_Vertibas
 {
@@ -13,16 +10,31 @@ public static class Common_Vertibas
     public static StreamReader Reader;
     public static bool Connected = false;
     public static bool LoggedIn = false;
+    public static int Timeouts = 5;
+    public static int Progress = 0;
+    public static string UserName = null;
+
+    public static string AllStats;
+
+    public static int IzspeletasSpeles = 0;
+    public static int PunktiKopa = 0;
+    public static float PunktiMinute = 0;
+    public static float VidejaisPunktiVienaSpele = 0;
+    public static float VidejasisLaiksVienaSpele = 0;
+    public static float KopaIzspeletaisLaiks = 0;
+    public static int AugstakaisPunktuSkaits = 0;
+    public static float AugstakaisPunktiMinute = 0;
 
 
     public static float MaxSkerslaRobeza = 5; //Drošības pēc
     public static int FreeSpace = 6; //Default
     public static bool debug = false;
     public static bool AtlautsSpelet = true;
+    public static bool Zaudejis = false;
     public static string[] debug_texts = new string[50];
 
 
     //TODO iebūvēt
-    public static int ObjektiPirms = 10;
-    public static int ObjektiPec = 20;
+    public static int ObjektiPrieksa = 10;
+    public static int ObjektiAizmuguree = 5;
 }

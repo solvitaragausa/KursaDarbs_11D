@@ -51,7 +51,7 @@
             // UI_Uptime
             // 
             this.UI_Uptime.AutoSize = true;
-            this.UI_Uptime.Location = new System.Drawing.Point(535, 0);
+            this.UI_Uptime.Location = new System.Drawing.Point(162, 0);
             this.UI_Uptime.Margin = new System.Windows.Forms.Padding(0);
             this.UI_Uptime.Name = "UI_Uptime";
             this.UI_Uptime.Size = new System.Drawing.Size(116, 13);
@@ -61,7 +61,7 @@
             // UI_Clients_Connected
             // 
             this.UI_Clients_Connected.AutoSize = true;
-            this.UI_Clients_Connected.Location = new System.Drawing.Point(-3, 0);
+            this.UI_Clients_Connected.Location = new System.Drawing.Point(0, 0);
             this.UI_Clients_Connected.Margin = new System.Windows.Forms.Padding(0);
             this.UI_Clients_Connected.Name = "UI_Clients_Connected";
             this.UI_Clients_Connected.Size = new System.Drawing.Size(84, 13);
@@ -70,13 +70,10 @@
             // 
             // UI_State
             // 
-            this.UI_State.AutoSize = true;
-            this.UI_State.Location = new System.Drawing.Point(253, 0);
-            this.UI_State.Margin = new System.Windows.Forms.Padding(0);
+            this.UI_State.Location = new System.Drawing.Point(0, 0);
             this.UI_State.Name = "UI_State";
-            this.UI_State.Size = new System.Drawing.Size(79, 13);
-            this.UI_State.TabIndex = 6;
-            this.UI_State.Text = "Statuss: Nav statusa";
+            this.UI_State.Size = new System.Drawing.Size(100, 23);
+            this.UI_State.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -96,10 +93,10 @@
             this.panel1.Controls.Add(this.UI_Clients_Connected);
             this.panel1.Controls.Add(this.UI_State);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 600);
+            this.panel1.Location = new System.Drawing.Point(0, 590);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(798, 13);
+            this.panel1.Size = new System.Drawing.Size(798, 23);
             this.panel1.TabIndex = 9;
             // 
             // Form1
@@ -112,9 +109,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Text = "Serveris";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

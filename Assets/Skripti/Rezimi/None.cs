@@ -16,7 +16,7 @@ public class None : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Common_Vertibas.Progress >= ObjectNum + Common_Vertibas.ObjektiAizmuguree) GameObject.Destroy(gameObject);
     }
 
     public void SetVertibas(float VidusPlatums, int SkerslaNumurs)

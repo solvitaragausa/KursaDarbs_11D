@@ -20,8 +20,9 @@ public class Helperi
         PunchLeft,
         PunchRight,
         RandomMovement,
-        Empty,
-        None
+        None,
+        Empty
+
     }
     public enum SkersluVeids
     {
@@ -57,15 +58,6 @@ public class Helperi
     {
         Debug.Log("Temp Log Here: " + msg);
     }
-
-    public static void CreateNewThread(Action Function)
-    {
-        //  Function.Invoke();
-        ThreadStart start = () => Function();
-        Thread t = new Thread(start);
-        t.Start();
-    }
-
 
 
 

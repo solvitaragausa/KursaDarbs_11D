@@ -19,14 +19,14 @@ public class SkersluSpawneris : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i<200;++i)
-        IzveidotSkersli(4, (Helperi.SkerslaRezims) (int)Helperi.GetRandomFloat(-1,9) , 5);
+       
     }
 
 
     void Update()
     {
-
+        if(Common_Vertibas.Progress + Common_Vertibas.ObjektiPrieksa > SkerslaNumurs) IzveidotSkersli(4, (Helperi.SkerslaRezims)(int)Helperi.GetRandomFloat(-1, 8), 5);
+        Common_Vertibas.debug_texts[4] = "Pašreizējais šķēršļu daudzums: " + VisiSkersli.childCount;
     }
     
     void IzveidotSkersli(float VidusPlatums, Helperi.SkerslaRezims Rezims, float speed)
@@ -69,9 +69,10 @@ public class SkersluSpawneris : MonoBehaviour
                 Skripts2.SetVertibas(VidusPlatums, speed, SkerslaNumurs);
                 break;
             case Helperi.SkerslaRezims.PunchLeftAndRight:
-                SpawnotSkersli(Helperi.SkersluVeids.Abi, Skerslis, pozicijas);
+                Vector3[] PosPunchLeftAndRight = { new Vector3(0, 0, 0), new Vector3(0, 0, 0) };
+                SpawnotSkersli(Helperi.SkersluVeids.Kreisais, Skerslis, PosPunchLeftAndRight);
                 PunchLeftAndRight Skripts3 = Skerslis.AddComponent<PunchLeftAndRight>();
-                //TODO
+                Skripts3.SetVertibas(VidusPlatums, speed, SkerslaNumurs, PunchExtra);
                 break;
             case Helperi.SkerslaRezims.PunchLeft:
                 SpawnotSkersli(Helperi.SkersluVeids.Labais, Skerslis, pozicijas);
@@ -88,14 +89,15 @@ public class SkersluSpawneris : MonoBehaviour
                 RandomMovement Skripts6 = Skerslis.AddComponent<RandomMovement>();
                 Skripts6.SetVertibas(VidusPlatums, speed/1.5f, SkerslaNumurs,RandomGajiens);
                 break;
-            case Helperi.SkerslaRezims.Empty:
-                // Šķēršļa nav 
-            break;
             case Helperi.SkerslaRezims.None:
                 SpawnotSkersli(Helperi.SkersluVeids.Abi, Skerslis, pozicijas);
                 None Skripts7 = Skerslis.AddComponent<None>();
                 Skripts7.SetVertibas(VidusPlatums, SkerslaNumurs);
                 break;
+            case Helperi.SkerslaRezims.Empty:
+                // Šķēršļa nav 
+            break;
+
             default:
 
                 SpawnotSkersli(Helperi.SkersluVeids.Abi, Skerslis, pozicijas);

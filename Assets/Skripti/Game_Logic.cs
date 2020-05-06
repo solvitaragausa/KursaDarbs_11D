@@ -47,7 +47,11 @@ public class Game_Logic : MonoBehaviour
             }
             transform.position = Vector3.MoveTowards(transform.position, target, step);
             Punkti = (int)((transform.position.y - 0.5f) / (Common_Vertibas.FreeSpace + 1));
-            if (Punkti > MaxPunkti) MaxPunkti = Punkti;
+            if (Punkti > MaxPunkti)
+            {
+                MaxPunkti = Punkti;
+                Common_Vertibas.Progress = Punkti;
+            }
             Punkti_text.text = "Punkti: " + MaxPunkti;
 
             Common_Vertibas.debug_texts[1] = "Laiks: " + Laiks.ToString("f1");
@@ -58,22 +62,19 @@ public class Game_Logic : MonoBehaviour
                 if (ClickEfekts.GetComponent<ParticleSystem>().isPlaying) ClickEfekts.GetComponent<ParticleSystem>().Stop();
             }
         }
-        else
+        if(Common_Vertibas.Zaudejis)
         {
             if (ClickEfekts.GetComponent<ParticleSystem>().isPlaying) ClickEfekts.GetComponent<ParticleSystem>().Stop();
 
             InGame.SetActive(false);
 
-            PostGame_Punkti.text = "Iegūtie Punkti: "+Punkti.ToString();
+            PostGame_Punkti.text = "Iegūtie Punkti: "+MaxPunkti.ToString();
             PostGame_Laiks.text = "Laiks: "+Laiks.ToString("f2") + " sekundes";
-            if (Punkti >= 25)
+            if (MaxPunkti >= 25)
                 PostGame_PointsPerMinute.text = "Punkti Minūtē: "+(MaxPunkti / Laiks * 60).ToString("f2") ;
             else
                 PostGame_PointsPerMinute.text = "Punkti Minūtē: Iegūstiet vismaz 25 punktus, lai precīzi uzzinātu punktus minūtē";
             PostGame.SetActive(true);
-            //TODO
-            //Nosutit serverim datus
-            //uzlikt death screenu
         }
 
     }

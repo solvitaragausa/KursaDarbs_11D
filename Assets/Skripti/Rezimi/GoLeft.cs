@@ -18,7 +18,9 @@ public class GoLeft : MonoBehaviour
 
     void Update()
     {
-        if(Common_Vertibas.AtlautsSpelet)
+        if (Common_Vertibas.Progress >= ObjectNum + Common_Vertibas.ObjektiAizmuguree) GameObject.Destroy(gameObject);
+
+        if (Common_Vertibas.AtlautsSpelet)
         { 
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target, step);

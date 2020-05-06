@@ -22,6 +22,8 @@ public class PunchRight : MonoBehaviour
     }
     void Update()
     {
+        if (Common_Vertibas.Progress >= ObjectNum + Common_Vertibas.ObjektiAizmuguree) GameObject.Destroy(gameObject);
+
         if (Common_Vertibas.AtlautsSpelet)
         {
             if (!a)

@@ -20,7 +20,7 @@ namespace Speles_serveris
         public static List<TcpClient> Clients = new List<TcpClient>();
 
         public readonly static int Ports = 20782;
-        public static int Timeouts = 10000;
+        public static int Timeouts = 10;
         public static bool TimeLogging = true;
         public static bool LoggingEnabled = true;
         public static int Connected = 0;
@@ -46,8 +46,9 @@ namespace Speles_serveris
                     Directory.CreateDirectory("Logs");
                 }
 
-                LogFile = string.Format(@"Logs\Serveris_Log_{0:yyyy-MM-dd_hh-mm-ss}.log", DateTime.Now);
+                LogFile = string.Format(@"Logs\Serveris_{0:yyyy-MM-dd_hh-mm-ss}.log", DateTime.Now);
             }
+
 
             Helperi.CreateNewThread(ServeraInitializaacija); //Jauns threads lai ui nenokārtos
         }
@@ -56,6 +57,8 @@ namespace Speles_serveris
         {
 
             ListBox_Add("Notiek servera veidošana...");
+            if (!File.Exists(UsersFile)) File.AppendAllText(UsersFile, "");
+            if (!File.Exists(UsersData)) File.AppendAllText(UsersData, "");
             Helperi.CreateNewThread(UI_Updater);
             ServerListener = new TcpListener(IPAddress.Any, Ports); //Klausās no jebkurienes
             ListBox_Add("Serveris izveidots. Startējam serveri uz porta " + Ports + "!");
@@ -85,17 +88,17 @@ namespace Speles_serveris
                 }
                 catch (Exception e)
                 {
-                        
-                        ListBox_Add(e.Message);
-                        Thread.Sleep(5000);
-                        continue;            
-                    
+
+                    ListBox_Add(e.Message);
+                    Thread.Sleep(5000);
+                    continue;
+
                 }
                 Clients.Add(newClient);
                 ConnectionId++;
                 Connected++;
                 // Izveidojam threadu tikai priekš šī clienta, lai varētu veikt komunikāciju ar to.
-                ListBox_Add("Jauns savienojums ar id " + ConnectionId + " pieņemts [" + newClient.Client.RemoteEndPoint + "]");
+                ListBox_Add("Jauns savienojums pieņemts [" + newClient.Client.RemoteEndPoint + "]");
                 Helperi.CreateNewThread(() => MainClientHandler(newClient, ConnectionId));
             }
         }
@@ -107,59 +110,69 @@ namespace Speles_serveris
             StreamReader Reader = new StreamReader(client.GetStream(), Encoding.ASCII);
 
 
-            
+
             string ClientData = null;
             string[] Users;
             string[] UsersStats;
 
             //Spēlētāja dati
-            string UserName;
-            int PointRecord;
-            float PointsPerMinuteRecord;
-            
-            while (true)
+            string UserName = null;
+            int IzspeletasSpeles = 0;
+            int PunktiKopa = 0;
+            float KopaIzspeletaisLaiks = 0;
+            int AugstakaisPunktuSkaits = 0;
+            float AugstakaisPunktiMinute = 0;
+
+            DateTime KomunikacijasBridis = DateTime.Now;
+            while ((DateTime.Now - KomunikacijasBridis).Seconds < Timeouts)
             {
+
                 try
                 {
-                    ClientData = Reader.ReadLine();
+                    ClientData = null;
+                    if (client.GetStream().DataAvailable) ClientData = Reader.ReadLine();
                 }
                 catch
                 {
                     break;
                 }
-                
+
 
                 if (ClientData != null)
                 {
-                    ListBox_Add(ClientData);
+                    KomunikacijasBridis = DateTime.Now;
+                    //ListBox_Add(ClientData);
                     string[] Dati = ClientData.Split(' ');
                     string response = " ";
 
 
-                    if (Dati[0]=="1") //Reģistrācija
+
+                    if (Dati[0] == "1") //Reģistrācija
                     {
                         //Dati[1] - Lietotājvārds
                         //Dati[2] - Parole
                         Users = File.ReadAllLines(UsersFile);
                         bool UserAlreadyExists = false;
-                        foreach(string User in Users)
+                        foreach (string User in Users)
                         {
-                            if (User == Dati[1])
+                            if (User.StartsWith(Dati[1]))
                             {
                                 UserAlreadyExists = true;
                                 break;
                             }
                         }
 
-                        if(UserAlreadyExists)
+                        if (UserAlreadyExists)
                         {
                             response = "BAD_USERNAME";
-                            ListBox_Add("Kāds centās reģistrēties ar nikneimu " + Dati[2] + ", bet tāds jau eksistēja");
+                            ListBox_Add("Kāds centās reģistrēties ar nikneimu " + Dati[1] + ", bet tāds jau eksistēja");
                         }
                         else
                         {
                             string NewUserConfig = Dati[1] + " " + Dati[2];
                             File.AppendAllText(UsersFile, NewUserConfig + Environment.NewLine);
+                            File.AppendAllText(UsersData, Dati[1] + " 0 0 0 0 0" + Environment.NewLine);
+                            UserName = Dati[1];
                             response = "REG_SUCCESS";
                             ListBox_Add("Spēlētājs " + Dati[1] + " tikko reģistrējās");
                         }
@@ -190,11 +203,17 @@ namespace Speles_serveris
 
                             foreach (string UserStats in UsersStats)
                             {
-                               if (UserStats.StartsWith(UserName))
+                                if (UserStats.StartsWith(UserName))
                                 {
                                     string[] userstatsData = UserStats.Split(' ');
-                                    PointRecord = Int32.Parse(userstatsData[1]);
-                                    PointsPerMinuteRecord = float.Parse(userstatsData[2]);
+
+                                    IzspeletasSpeles = Int32.Parse(userstatsData[1]);
+                                    PunktiKopa = Int32.Parse(userstatsData[2]);
+                                    KopaIzspeletaisLaiks = float.Parse(userstatsData[3]);
+                                    AugstakaisPunktuSkaits = Int32.Parse(userstatsData[4]);
+                                    AugstakaisPunktiMinute = float.Parse(userstatsData[5]);
+
+
                                 }
                             }
                             response = "LOGIN_SUCCESS";
@@ -211,18 +230,66 @@ namespace Speles_serveris
                     }
                     else if (Dati[0] == "3") //Pēcspēles datu nodošana
                     {
+                        int SpelesPunkti = Int32.Parse(Dati[1]);
+                        float SpelesLaiks = float.Parse(Dati[2]);
+                        ListBox_Add("Saņēmām spēles datus no " + UserName+": "+SpelesPunkti+" punkti, "+SpelesLaiks+" sekundes");
+                        //Dati[1] = Punkti
+                        //Dati[2] = Laiks
+                        
+                        float PunktiMinute = float.Parse(((SpelesPunkti / SpelesLaiks) * 60).ToString("f2")); //Lai butu tikai 2 cipari aiz komata.
 
+                        IzspeletasSpeles++;
+                        PunktiKopa += SpelesPunkti;
+                        KopaIzspeletaisLaiks += SpelesLaiks;
+                        if (SpelesPunkti > AugstakaisPunktuSkaits )
+                        {
+                            ListBox_Add("Spēlētājam "+UserName + " jauns augstākais punktu skaits vienā spēlē");
+                            AugstakaisPunktuSkaits = SpelesPunkti;
+                        }
+                        if (PunktiMinute > AugstakaisPunktiMinute && SpelesPunkti >= 25)
+                        {
+                            ListBox_Add("Spēlētājam " + UserName + " jauns augstākais punktu skaits vienā minūtē");
+                            AugstakaisPunktiMinute = PunktiMinute;
+                        }
+
+                        //Nevajag responsu
                     }
                     else if (Dati[0] == "4") //Spēles datu pieprasīšana
                     {
-
+                        ListBox_Add("Sūtam "+UserName + " viņa statistiku");
+                        response = IzspeletasSpeles.ToString() + " " + PunktiKopa.ToString() + " " + KopaIzspeletaisLaiks.ToString() + " " + AugstakaisPunktuSkaits.ToString() + " " + AugstakaisPunktiMinute.ToString();
+                        Writer.WriteLine(response);
+                        Writer.Flush();
                     }
-                    else if (Dati[0] == "4") //TODO:LeaderBoards
+                    else if (Dati[0] == "5") //TODO:LeaderBoards
                     {
 
                     }
                 }
+
+                Thread.Sleep(100);
             }
+
+
+
+            if (UserName != null)
+            {
+                ListBox_Add(UserName + " tikko atvienojās no servera, saglabājam viņa spēles datus.");
+                //Jāsaglabā spēlētāju datus, kad viņs beidz spēlēt
+                UsersStats = File.ReadAllLines(UsersData);
+                for (int i = 0; i < UsersStats.Length; i++)
+                {
+                    if (UsersStats[i].StartsWith(UserName))
+                    {
+                        UsersStats[i] = UserName + " " + IzspeletasSpeles.ToString() + " " + PunktiKopa.ToString() + " " + KopaIzspeletaisLaiks.ToString() + " " + AugstakaisPunktuSkaits.ToString() + " " + AugstakaisPunktiMinute.ToString();
+                        File.WriteAllLines(UsersData, UsersStats);
+                        break;
+                    }
+                }
+
+            }
+            else ListBox_Add("Kāds atvienojās no servera");
+            client.Close();
             Connected--;
         }
 
@@ -255,7 +322,7 @@ namespace Speles_serveris
             {
                 a = "[" + DateTime.Now.ToString() + "] ";
             }
-                    
+
             this.Invoke(new MethodInvoker(delegate () //Atrodas citā threadā
             {
                 string b = a + text;
@@ -271,4 +338,9 @@ namespace Speles_serveris
             Environment.Exit(0); //Iznīcina visus threadus, savādākā gadījumā programma aizvērsies, bet threadi vienalga strādās.
         }
     }
+
+
+
+    
+
 }

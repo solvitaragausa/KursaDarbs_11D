@@ -57,9 +57,11 @@
   <ItemGroup>
      <Compile Include="Assets\Skripti\Common_Vertibas.cs" />
      <Compile Include="Assets\Skripti\Detect_Collision.cs" />
+     <Compile Include="Assets\Skripti\GameNetworking.cs" />
      <Compile Include="Assets\Skripti\Game_Logic.cs" />
      <Compile Include="Assets\Skripti\Helperi.cs" />
      <Compile Include="Assets\Skripti\Kamera.cs" />
+     <Compile Include="Assets\Skripti\MainEkrans.cs" />
      <Compile Include="Assets\Skripti\Networking.cs" />
      <Compile Include="Assets\Skripti\PostGame.cs" />
      <Compile Include="Assets\Skripti\Rezimi\GoLeft.cs" />
