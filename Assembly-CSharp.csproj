@@ -61,6 +61,7 @@
      <Compile Include="Assets\Skripti\Game_Logic.cs" />
      <Compile Include="Assets\Skripti\Helperi.cs" />
      <Compile Include="Assets\Skripti\Kamera.cs" />
+     <Compile Include="Assets\Skripti\Leaderboards.cs" />
      <Compile Include="Assets\Skripti\MainEkrans.cs" />
      <Compile Include="Assets\Skripti\Networking.cs" />
      <Compile Include="Assets\Skripti\PostGame.cs" />

@@ -1,0 +1,4 @@
+Testsdivi 30,74
+Intars 15,94
+test 0
+Tests 0

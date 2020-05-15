@@ -1,0 +1,34 @@
+[15.05.2020 20:42:36] Notiek servera veidošana...
+[15.05.2020 20:42:37] Serveris izveidots. Startējam serveri uz porta 20782!
+[15.05.2020 20:42:37] Serveris tika veiksmīgi startēts uz porta 20782!
+[15.05.2020 20:42:37] Sākam klausīšanos!
+[15.05.2020 20:42:45] Jauns savienojums pieņemts [192.168.8.101:55982]
+[15.05.2020 20:42:45] Spēlētājs Tests tikko iegāja savā profilā
+[15.05.2020 20:42:45] Sūtam Tests viņa statistiku
+[15.05.2020 20:42:46] Sūtam Tests informāciju par top spēlētājiem
+[15.05.2020 20:42:46] Veiksmīgi aizsūtīts!
+[15.05.2020 20:43:01] Tests tikko atvienojās no servera, saglabājam viņa spēles datus.
+[15.05.2020 20:43:09] Jauns savienojums pieņemts [192.168.8.101:55984]
+[15.05.2020 20:43:09] Spēlētājs Intars tikko iegāja savā profilā
+[15.05.2020 20:43:09] Sūtam Intars viņa statistiku
+[15.05.2020 20:43:10] Sūtam Intars informāciju par top spēlētājiem
+[15.05.2020 20:43:10] Veiksmīgi aizsūtīts!
+[15.05.2020 20:43:38] Saņēmām spēles datus no Intars: 12 punkti, 21,68 sekundes
+[15.05.2020 20:43:38] Spēlētājam Intars jauns augstākais punktu skaits vienā spēlē
+[15.05.2020 20:43:39] Sūtam Intars viņa statistiku
+[15.05.2020 20:43:40] Sūtam Intars informāciju par top spēlētājiem
+[15.05.2020 20:43:40] Veiksmīgi aizsūtīts!
+[15.05.2020 20:43:48] Intars tikko atvienojās no servera, saglabājam viņa spēles datus.
+[15.05.2020 20:43:52] Jauns savienojums pieņemts [192.168.8.101:55994]
+[15.05.2020 20:43:52] Spēlētājs Tests tikko iegāja savā profilā
+[15.05.2020 20:43:52] Sūtam Tests viņa statistiku
+[15.05.2020 20:43:57] Saņēmām spēles datus no Tests: 1 punkti, 3,7 sekundes
+[15.05.2020 20:43:57] Spēlētājam Tests jauns augstākais punktu skaits vienā spēlē
+[15.05.2020 20:43:58] Sūtam Tests viņa statistiku
+[15.05.2020 20:43:59] Sūtam Tests informāciju par top spēlētājiem
+[15.05.2020 20:43:59] Veiksmīgi aizsūtīts!
+[15.05.2020 20:44:11] Saņēmām spēles datus no Tests: 4 punkti, 5,67 sekundes
+[15.05.2020 20:44:11] Spēlētājam Tests jauns augstākais punktu skaits vienā spēlē
+[15.05.2020 20:44:12] Sūtam Tests viņa statistiku
+[15.05.2020 20:44:12] Sūtam Tests informāciju par top spēlētājiem
+[15.05.2020 20:44:12] Veiksmīgi aizsūtīts!

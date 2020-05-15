@@ -1,0 +1,28 @@
+[15.05.2020 20:35:47] Notiek servera veidošana...
+[15.05.2020 20:35:47] Serveris izveidots. Startējam serveri uz porta 20782!
+[15.05.2020 20:35:47] Serveris tika veiksmīgi startēts uz porta 20782!
+[15.05.2020 20:35:47] Sākam klausīšanos!
+[15.05.2020 20:36:08] Jauns savienojums pieņemts [192.168.8.101:55701]
+[15.05.2020 20:36:08] Spēlētājs Intars tikko reģistrējās
+[15.05.2020 20:36:08] Sūtam Intars viņa statistiku
+[15.05.2020 20:36:11] Sūtam Intars informāciju par top spēlētājiem
+[15.05.2020 20:36:11] Veiksmīgi aizsūtīts!
+[15.05.2020 20:36:41] Saņēmām spēles datus no Intars: 10 punkti, 25,89 sekundes
+[15.05.2020 20:36:41] Spēlētājam Intars jauns augstākais punktu skaits vienā spēlē
+[15.05.2020 20:36:42] Sūtam Intars viņa statistiku
+[15.05.2020 20:36:43] Sūtam Intars informāciju par top spēlētājiem
+[15.05.2020 20:36:43] Veiksmīgi aizsūtīts!
+[15.05.2020 20:36:46] Sūtam Intars informāciju par top spēlētājiem
+[15.05.2020 20:36:46] Veiksmīgi aizsūtīts!
+[15.05.2020 20:36:49] Intars tikko atvienojās no servera, saglabājam viņa spēles datus.
+[15.05.2020 20:36:55] Jauns savienojums pieņemts [192.168.8.101:55731]
+[15.05.2020 20:36:55] Spēlētājs Tests tikko reģistrējās
+[15.05.2020 20:36:56] Sūtam Tests viņa statistiku
+[15.05.2020 20:36:57] Sūtam Tests informāciju par top spēlētājiem
+[15.05.2020 20:36:57] Veiksmīgi aizsūtīts!
+[15.05.2020 20:37:11] Saņēmām spēles datus no Tests: 3 punkti, 10,13 sekundes
+[15.05.2020 20:37:11] Spēlētājam Tests jauns augstākais punktu skaits vienā spēlē
+[15.05.2020 20:37:12] Sūtam Tests viņa statistiku
+[15.05.2020 20:37:13] Sūtam Tests informāciju par top spēlētājiem
+[15.05.2020 20:37:13] Veiksmīgi aizsūtīts!
+[15.05.2020 20:38:49] Tests tikko atvienojās no servera, saglabājam viņa spēles datus.

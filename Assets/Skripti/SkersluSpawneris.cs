@@ -12,6 +12,7 @@ public class SkersluSpawneris : MonoBehaviour
     float PunchExtra = 15.0f;
     float RandomGajiens = 1.0f;
 
+
     void OnEnable()
     {
         MaxRobeza = Common_Vertibas.MaxSkerslaRobeza; 
@@ -19,7 +20,7 @@ public class SkersluSpawneris : MonoBehaviour
 
     void Start()
     {
-       
+
     }
 
 
@@ -114,6 +115,8 @@ public class SkersluSpawneris : MonoBehaviour
 
     void SpawnotSkersli(Helperi.SkersluVeids veids, GameObject Skerslis, Vector3[] pozicija)
     {
+       
+
         if (veids == Helperi.SkersluVeids.Kreisais)
         {
             Instantiate(PuseSkersla, pozicija[0]+Skerslis.transform.position, Skerslis.transform.rotation, Skerslis.transform);

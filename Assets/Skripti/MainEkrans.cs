@@ -9,7 +9,7 @@ public class MainEkrans : MonoBehaviour
     public Networking network;
     public TMPro.TMP_Text skaitli;
     public TMPro.TMP_Text speletajs_text;
-    void Start()
+    void LateUpdate()
     {
         if(Common_Vertibas.AllStats != "no_data")
         {
@@ -69,6 +69,7 @@ public class MainEkrans : MonoBehaviour
     }
     public void Exit()
     {
+        
         Application.Quit();
     }
 

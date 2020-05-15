@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - GameNetworking
     - Game_Logic
     - Kamera
+    - Leaderboards
     - MainEkrans
     - Networking
     - PostGame
@@ -35,9 +36,13 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Limeni/RandomLevel.unity:
     - Class: 1
@@ -97,9 +102,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12746}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 13136}
+      Script: {instanceID: 13138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -152,15 +157,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11422}
     - Class: 114
+      Script: {instanceID: 11504}
+    - Class: 114
       Script: {instanceID: 11610}
     - Class: 114
       Script: {instanceID: 11632}
+    - Class: 114
+      Script: {instanceID: 11716}
     - Class: 114
       Script: {instanceID: 11818}
     - Class: 114
       Script: {instanceID: 11844}
     - Class: 114
+      Script: {instanceID: 12020}
+    - Class: 114
       Script: {instanceID: 12232}
+    - Class: 114
+      Script: {instanceID: 12328}
     - Class: 114
       Script: {instanceID: 12466}
     - Class: 114
@@ -170,11 +183,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12746}
     - Class: 114
-      Script: {instanceID: 12816}
+      Script: {instanceID: 12790}
     - Class: 114
-      Script: {instanceID: 12920}
+      Script: {instanceID: 12818}
     - Class: 114
-      Script: {instanceID: 13136}
+      Script: {instanceID: 12922}
+    - Class: 114
+      Script: {instanceID: 13138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -578,7 +593,13 @@ ScriptsOnlyBuild:
     className: PunchRight
   - hash:
       serializedVersion: 2
-      Hash: ca10ae58bf5e05e988d734ca9af18d23
+      Hash: 05f22d90949c16f0ed6f6e51d2334e7c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Leaderboards
+  - hash:
+      serializedVersion: 2
+      Hash: c253348bf274dd4900f3c69842487266
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Networking

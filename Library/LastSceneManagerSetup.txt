@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Limeni/RandomLevel.unity
+- path: Assets/Limeni/Sakums.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

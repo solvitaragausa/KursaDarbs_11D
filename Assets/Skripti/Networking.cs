@@ -11,6 +11,7 @@ public class Networking : MonoBehaviour
     public GameObject LOGIN;
     public GameObject REG;
     public GameObject MAIN;
+    public GameObject LEADERBOARDS;
 
     public TMPro.TMP_Text PazinojumsText;
     public GameObject Pazinojums;
@@ -25,7 +26,7 @@ public class Networking : MonoBehaviour
     string response;
 
 
-    void Start()
+    void OnEnable()
 
     { 
         if(Common_Vertibas.LoggedIn) //Tātad izgāja no spēles, jo iepriekšējo reizi jau bija pierakstījies
@@ -56,6 +57,7 @@ public class Networking : MonoBehaviour
         }
         
     }
+
     public void LogIn()
     {
 
@@ -172,12 +174,15 @@ public class Networking : MonoBehaviour
                     LOGIN.SetActive(true);
                     Pazinot("Pazuda savienojums ar serveri");
                 }
-           
+                else if(LEADERBOARDS.activeSelf)
+                {
+                    LEADERBOARDS.SetActive(false);
+                    LOGIN.SetActive(true);
+                    Pazinot("Pazuda savienojums ar serveri");
+                }
 
-                Common_Vertibas.Connected = false;
-                Common_Vertibas.LoggedIn = false;
-                Common_Vertibas.client.Close();
-                Common_Vertibas.client.Dispose();
+
+                KillConnection();
             }
         }
     }
@@ -193,10 +198,7 @@ public class Networking : MonoBehaviour
             }
             catch
             {
-                Common_Vertibas.Connected = false;
-                Common_Vertibas.LoggedIn = false;
-                Common_Vertibas.client.Close();
-                Common_Vertibas.client.Dispose();
+                KillConnection();
             }
         }
 
@@ -220,15 +222,43 @@ public class Networking : MonoBehaviour
             }
             catch
             {
-                Common_Vertibas.Connected = false;
-                Common_Vertibas.LoggedIn = false;
-                Common_Vertibas.client.Close();
-                Common_Vertibas.client.Dispose();
+                KillConnection();
                 return "no_data";
             }
 
         }
         return "no_data";
+    }
+    public void GetLeaderboards()
+    {
+        SendToServer("5");
+        string data = GetResponse();
+        string[] leaderbords = data.Split(new string[] { "[NEXT]" }, StringSplitOptions.None);
+        foreach (string s in leaderbords) Debug.Log(s);
+        Common_Vertibas.LeaderBoards1 = leaderbords[0];
+        Common_Vertibas.LeaderBoards2 = leaderbords[1];
+        Common_Vertibas.LeaderBoards3 = leaderbords[2];
+
+    }
+
+    public void Izrakstities()
+    {
+        SendToServer("6");
+        KillConnection();
+    }
+
+    public void Iziet()
+    {
+        Izrakstities();
+        Application.Quit();
+    }
+
+    public void KillConnection()
+    {
+        Common_Vertibas.Connected = false;
+        Common_Vertibas.LoggedIn = false;
+        Common_Vertibas.client.Close();
+        Common_Vertibas.client.Dispose();
     }
 
     public void Pazinot(string msg)

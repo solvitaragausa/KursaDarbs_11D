@@ -28,6 +28,12 @@ namespace Speles_serveris
         public static string LogFile = "";
         public static string UsersFile = "Users.txt";
         public static string UsersData = "UsersData.txt";
+
+
+        //Tikai top 10 saglabajam
+        public static string PunktiKopa_L = "AllPoints_L.txt";
+        public static string AugstakaisPunktiMinute_L = "PointsPerMinute_L.txt";
+        public static string AugstakaisPunktiSpele_L = "HighestPointsInOneGame_L.txt";
         public Form1()
         {
             InitializeComponent();
@@ -57,8 +63,22 @@ namespace Speles_serveris
         {
 
             ListBox_Add("Notiek servera veidošana...");
+
+           // string def = "EMPTY 0";
+
+            //for (int i = 0; i < 20; i++) def = def + Environment.NewLine + "EMPTY 0";
+
+
+            //Pārbaudām vai faili eksistē
             if (!File.Exists(UsersFile)) File.AppendAllText(UsersFile, "");
             if (!File.Exists(UsersData)) File.AppendAllText(UsersData, "");
+            if (!File.Exists(PunktiKopa_L)) File.AppendAllText(PunktiKopa_L, "");
+            if (!File.Exists(AugstakaisPunktiMinute_L)) File.AppendAllText(AugstakaisPunktiMinute_L, "");
+            if (!File.Exists(AugstakaisPunktiSpele_L)) File.AppendAllText(AugstakaisPunktiSpele_L, "");
+
+
+
+
             Helperi.CreateNewThread(UI_Updater);
             ServerListener = new TcpListener(IPAddress.Any, Ports); //Klausās no jebkurienes
             ListBox_Add("Serveris izveidots. Startējam serveri uz porta " + Ports + "!");
@@ -143,7 +163,7 @@ namespace Speles_serveris
                     KomunikacijasBridis = DateTime.Now;
                     //ListBox_Add(ClientData);
                     string[] Dati = ClientData.Split(' ');
-                    string response = " ";
+                    string response = " "; 
 
 
 
@@ -172,6 +192,9 @@ namespace Speles_serveris
                             string NewUserConfig = Dati[1] + " " + Dati[2];
                             File.AppendAllText(UsersFile, NewUserConfig + Environment.NewLine);
                             File.AppendAllText(UsersData, Dati[1] + " 0 0 0 0 0" + Environment.NewLine);
+                            File.AppendAllText(PunktiKopa_L, Dati[1]+ " 0" + Environment.NewLine);
+                            File.AppendAllText(AugstakaisPunktiMinute_L, Dati[1] + " 0" + Environment.NewLine);
+                            File.AppendAllText(AugstakaisPunktiSpele_L, Dati[1] + " 0" + Environment.NewLine);
                             UserName = Dati[1];
                             response = "REG_SUCCESS";
                             ListBox_Add("Spēlētājs " + Dati[1] + " tikko reģistrējās");
@@ -253,17 +276,124 @@ namespace Speles_serveris
                         }
 
                         //Nevajag responsu
+
+                        #region Leaderboard saglabāšana
+                        //Saglabājam leaderboardos ja nepieciešams
+                        List<string> PunktiKopaFails = new List<string>(File.ReadAllLines(PunktiKopa_L));
+                        List<string> AugstakaisPunktiMinuteFails = new List<string>(File.ReadAllLines(AugstakaisPunktiMinute_L));
+                        List<string> AugstakaisPunktiSpeleFails = new List<string>(File.ReadAllLines(AugstakaisPunktiSpele_L));
+
+                        #region Punkti Kopa Leaderboard
+                        for (int i = 0; i < PunktiKopaFails.Count; i++)
+                        {
+                            string[] dati = PunktiKopaFails[i].Split(' ');
+                            if (dati.Length == 2)
+                            {
+                                if (dati[0] == UserName)
+                                {
+                                    if (Int32.Parse(dati[1]) > PunktiKopa) break;
+                                    else
+                                    {
+                                        PunktiKopaFails.RemoveAt(i);
+                                        string temp = UserName + " " + PunktiKopa;
+                                        PunktiKopaFails.Add(temp);
+                                        PunktiKopaFails = PunktiKopaFails.OrderByDescending(s => Int32.Parse(s.Split(' ')[1]))
+                                            .ThenBy(s => s).ToList();
+
+                                    }
+                                }
+                           }
+                        }
+                        File.WriteAllLines(PunktiKopa_L, PunktiKopaFails);
+                        #endregion
+
+                        #region Augstakais Punkti Minute Leaderboard
+                        for (int i = 0; i < AugstakaisPunktiMinuteFails.Count; i++)
+                        {
+                            string[] dati = AugstakaisPunktiMinuteFails[i].Split(' ');
+                            if (dati.Length == 2)
+                            {
+                                if (dati[0] == UserName)
+                                {
+                                    if (float.Parse(dati[1]) > AugstakaisPunktiMinute) break;
+                                    else
+                                    {
+                                        AugstakaisPunktiMinuteFails.RemoveAt(i);
+                                        string temp = UserName + " " + AugstakaisPunktiMinute;
+                                        AugstakaisPunktiMinuteFails.Add(temp);
+
+                                        AugstakaisPunktiMinuteFails = AugstakaisPunktiMinuteFails.OrderByDescending(s => float.Parse(s.Split(' ')[1]))
+                                            .ThenBy(s => s).ToList();
+
+                                    }
+                                }
+                            }
+                        }
+                        File.WriteAllLines(AugstakaisPunktiMinute_L, AugstakaisPunktiMinuteFails);
+                        #endregion
+
+                        #region Augstakais Punkti Spele Leaderboard
+                        for (int i = 0; i < AugstakaisPunktiSpeleFails.Count; i++)
+                        {
+                            string[] dati = AugstakaisPunktiSpeleFails[i].Split(' ');
+                            if (dati.Length == 2)
+                            {
+                                if (dati[0] == UserName)
+                                {
+                                    if (Int32.Parse(dati[1]) > AugstakaisPunktuSkaits) break;
+                                    else
+                                    {
+                                        AugstakaisPunktiSpeleFails.RemoveAt(i);
+                                        string temp = UserName + " " + AugstakaisPunktuSkaits;
+                                        AugstakaisPunktiSpeleFails.Add(temp);
+                                        AugstakaisPunktiSpeleFails = AugstakaisPunktiSpeleFails.OrderByDescending(s => Int32.Parse(s.Split(' ')[1]))
+                                         .ThenBy(s => s).ToList();
+
+                                    }
+                                }
+                            }
+                        }
+                        File.WriteAllLines(AugstakaisPunktiSpele_L, AugstakaisPunktiSpeleFails);
+                        #endregion
+
+                        #endregion
+
                     }
                     else if (Dati[0] == "4") //Spēles datu pieprasīšana
                     {
                         ListBox_Add("Sūtam "+UserName + " viņa statistiku");
                         response = IzspeletasSpeles.ToString() + " " + PunktiKopa.ToString() + " " + KopaIzspeletaisLaiks.ToString() + " " + AugstakaisPunktuSkaits.ToString() + " " + AugstakaisPunktiMinute.ToString();
+                        //ListBox_Add(response);
                         Writer.WriteLine(response);
                         Writer.Flush();
                     }
-                    else if (Dati[0] == "5") //TODO:LeaderBoards
+                    else if (Dati[0] == "5") //LeaderBoards
                     {
+                        ListBox_Add("Sūtam " + UserName + " informāciju par top spēlētājiem");
+                        List<string> PunktiKopaFails = new List<string>(File.ReadAllLines(PunktiKopa_L));
+                        List<string> AugstakaisPunktiMinuteFails = new List<string>(File.ReadAllLines(AugstakaisPunktiMinute_L));
+                        List<string> AugstakaisPunktiSpeleFails = new List<string>(File.ReadAllLines(AugstakaisPunktiSpele_L));
 
+
+                        //Vajadzīgi 3 responsi, katrs responss atdalīts ar jaunu līniju
+                        response = "";
+                        for (int i = 0; i < PunktiKopaFails.Count; i++)
+                            response = response + " " + PunktiKopaFails[i];
+                        response = response + "[NEXT]";
+                        for (int i = 0; i < AugstakaisPunktiMinuteFails.Count; i++)
+                            response = response + " " + AugstakaisPunktiMinuteFails[i];
+                        response = response + "[NEXT]";
+                        for (int i = 0; i < AugstakaisPunktiSpeleFails.Count; i++)
+                            response = response +" "+ AugstakaisPunktiSpeleFails[i];
+                        Writer.WriteLine(response);
+                        Writer.Flush();
+
+                        ListBox_Add("Veiksmīgi aizsūtīts!");
+
+                    }
+                    else if (Dati[0] == "6") //Izrakstīšanās
+                    {
+                        break;
                     }
                 }
 
@@ -291,6 +421,9 @@ namespace Speles_serveris
             else ListBox_Add("Kāds atvienojās no servera");
             client.Close();
             Connected--;
+
+
+
         }
 
         private void UI_Updater()
